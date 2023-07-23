@@ -10,6 +10,7 @@ First, it's always good practice to update the package lists to ensure you have 
 
 
 *****************
+
 sudo apt update
 *****************
 
@@ -19,12 +20,14 @@ Jenkins requires Java to run. Install OpenJDK, an open-source implementation of 
 
 
 *******************************************
+
 sudo apt install openjdk-11-jre-headless
 *******************************************
 
 Verify the Java installation with:
 
 ***************
+
 java -version
 ***************
 
@@ -34,23 +37,28 @@ To get the latest stable release, add the Jenkins repository and install Jenkins
 Add the Jenkins repository key to apt:
 
 *******************************************************************************
+
 wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
 *******************************************************************************
 
 Add the Jenkins repository to apt sources:
+
 *********************************************************************************************************
+
 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 *********************************************************************************************************
 
 Update package lists:
 
 ****************
+
 sudo apt update
 ****************
 
 Install Jenkins:
 
 ************************** 
+
 sudo apt install jenkins
 ************************** 
 
@@ -58,12 +66,14 @@ Step 4: Start Jenkins Service
 After Jenkins installation, it should start automatically. To check its status, run:
 
 ******************************  
+
 sudo systemctl status jenkins
 ******************************  
 
 If Jenkins isn't running, start it with:
 
 ******************************  
+
 sudo systemctl start jenkins
 ******************************  
 
@@ -71,6 +81,7 @@ Step 5: Access Jenkins Web Interface
 By default, Jenkins runs on port 8080. Access the Jenkins web interface by entering your server's IP address or hostname followed by :8080 in your web browser:
 
 *************************************** 
+
 http://your_server_ip_or_hostname:8080
 *************************************** 
 
@@ -78,6 +89,7 @@ Step 6: Unlock Jenkins
 The first time you visit the Jenkins web interface, you'll need to unlock Jenkins. Retrieve the initial admin password using:
 
 ******************************************************* 
+
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ******************************************************* 
 
