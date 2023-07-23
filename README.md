@@ -1,11 +1,7 @@
 # jenkins-installation-ubuntu
 A step-by-step guide to installing Jenkins on an Ubuntu server. This documentation covers the process from setting up Java to accessing and unlocking the Jenkins web interface.
 
-
-Jenkins Installation Guide for Ubuntu
-A step-by-step guide to installing Jenkins on an Ubuntu server. This documentation covers the process from setting up Java to accessing and unlocking the Jenkins web interface.
-
-Step 1: Update Package Lists
+# Step 1: Update Package Lists
 First, it's always good practice to update the package lists to ensure you have the latest information about available packages. Open your terminal and run:
 
 
@@ -14,7 +10,7 @@ First, it's always good practice to update the package lists to ensure you have 
 sudo apt update
 *****************
 
-Step 2: Install Java
+# Step 2: Install Java
 Jenkins requires Java to run. Install OpenJDK, an open-source implementation of the Java Platform:
 
 
@@ -31,7 +27,7 @@ Verify the Java installation with:
 java -version
 ***************
 
-Step 3: Add Jenkins Repository and Install Jenkins
+# Step 3: Add Jenkins Repository and Install Jenkins
 To get the latest stable release, add the Jenkins repository and install Jenkins:
 
 Add the Jenkins repository key to apt:
@@ -55,14 +51,14 @@ Update package lists:
 sudo apt update
 ****************
 
-Install Jenkins:
+# Install Jenkins:
 
 ************************** 
 
 sudo apt install jenkins
 ************************** 
 
-Step 4: Start Jenkins Service
+# Step 4: Start Jenkins Service
 After Jenkins installation, it should start automatically. To check its status, run:
 
 ******************************  
@@ -77,7 +73,7 @@ If Jenkins isn't running, start it with:
 sudo systemctl start jenkins
 ******************************  
 
-Step 5: Access Jenkins Web Interface
+# Step 5: Access Jenkins Web Interface
 By default, Jenkins runs on port 8080. Access the Jenkins web interface by entering your server's IP address or hostname followed by :8080 in your web browser:
 
 *************************************** 
@@ -85,7 +81,7 @@ By default, Jenkins runs on port 8080. Access the Jenkins web interface by enter
 http://your_server_ip_or_hostname:8080
 *************************************** 
 
-Step 6: Unlock Jenkins
+# Step 6: Unlock Jenkins
 The first time you visit the Jenkins web interface, you'll need to unlock Jenkins. Retrieve the initial admin password using:
 
 ******************************************************* 
@@ -95,7 +91,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 Copy this password and paste it into the web interface to unlock Jenkins.
 
-Step 7: Complete Jenkins Setup
+# Step 7: Complete Jenkins Setup
 Follow the on-screen instructions in the Jenkins web interface to complete the setup, including installing suggested plugins and setting up an admin user.
 
 Once set up is complete, Jenkins will be ready for use. You can then begin creating Jenkins jobs and managing CI/CD workflows.
