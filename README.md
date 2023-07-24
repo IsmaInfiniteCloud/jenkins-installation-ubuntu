@@ -20,78 +20,79 @@ Jenkins requires Java to run. Install OpenJDK, an open-source implementation of 
 sudo apt install openjdk-11-jre-headless
 *******************************************
 
-Verify the Java installation with:
+To verify the Java installation:
 
-***************
-
+*************
 java -version
-***************
+************* 
+#  Step 3: Add Jenkins Repository and Install Jenkins
 
-# Step 3: Add Jenkins Repository and Install Jenkins
-To get the latest stable release, add the Jenkins repository and install Jenkins:
+Import the Jenkins repository GPG key:
 
-Add the Jenkins repository key to apt:
-
-*******************************************************************************
+**************************************************************** 
 
 wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
-*******************************************************************************
+***************************************************************** 
 
-Add the Jenkins repository to apt sources:
-
-*********************************************************************************************************
+Add the Jenkins repository to the system's APT sources:
+*****************************************************************  
 
 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-*********************************************************************************************************
+***************************************************************** 
 
-Update package lists:
-
-****************
+Update the package lists again:
+************************************************************
 
 sudo apt update
-****************
-
-# Install Jenkins:
-
-************************** 
+************************************************************
+#  Install Jenkins:
+************************************************************
 
 sudo apt install jenkins
-************************** 
+************************************************************
+#  Step 4: Manage Jenkins Service
 
-# Step 4: Start Jenkins Service
-After Jenkins installation, it should start automatically. To check its status, run:
+After the installation, Jenkins should start automatically. Check its status:
 
-******************************  
+************************************************************
 
 sudo systemctl status jenkins
-******************************  
+************************************************************
+If, for some reason, Jenkins isn't running, you can start it:
 
-If Jenkins isn't running, start it with:
-
-******************************  
+************************************************************
 
 sudo systemctl start jenkins
-******************************  
+************************************************************
+For enabling Jenkins to start at boot:
 
-# Step 5: Access Jenkins Web Interface
-By default, Jenkins runs on port 8080. Access the Jenkins web interface by entering your server's IP address or hostname followed by :8080 in your web browser:
+************************************************************
 
-*************************************** 
+sudo systemctl enable jenkins
+
+************************************************************
+#  Step 5: Access Jenkins Web Interface
+
+Jenkins listens on port 8080 by default. In your web browser, navigate to:
+
+************************************************************
 
 http://your_server_ip_or_hostname:8080
-*************************************** 
+************************************************************
+#  Step 6: Unlock Jenkins
 
-# Step 6: Unlock Jenkins
-The first time you visit the Jenkins web interface, you'll need to unlock Jenkins. Retrieve the initial admin password using:
+For first-time access, you'll need to unlock Jenkins. Fetch the initial admin password:
 
-******************************************************* 
+************************************************************
 
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-******************************************************* 
+************************************************************
+Use this password in the Jenkins web interface to proceed.
 
-Copy this password and paste it into the web interface to unlock Jenkins.
+#  Step 7: Complete Jenkins Setup
 
-# Step 7: Complete Jenkins Setup
-Follow the on-screen instructions in the Jenkins web interface to complete the setup, including installing suggested plugins and setting up an admin user.
+Follow the Jenkins web interface's prompts. This includes:
 
-Once set up is complete, Jenkins will be ready for use. You can then begin creating Jenkins jobs and managing CI/CD workflows.
+Installing recommended plugins.
+Configuring an admin user.
+With the setup complete, Jenkins is ready for use. Dive into creating projects, managing builds, and setting up CI/CD pipelines
